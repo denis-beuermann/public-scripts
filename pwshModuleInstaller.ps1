@@ -1,3 +1,5 @@
-Write-Host "Installing Azure PowerShell module..."
-install-module az.accounts -force -allowclobber -confirm:$false
-Write-Host "Finishing Azure PowerShell module installation"
+Write-Host 'Installing NuGet Package Provider...'
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+Write-Host 'Installing Azure PowerShell module...'
+install-module az.accounts -Confirm:$false -verbose
+Write-Host 'Finishing Azure PowerShell module installation'
