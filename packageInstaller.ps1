@@ -69,7 +69,7 @@ $packages = @(
             PackageInstaller = "VSCodeSetup-x64-1.104.3.exe"
             PackageType = "exe"
             PackageSetup = "VSCodeSetup-x64-1.104.3.exe"
-            PackageArguments = "/very /suppressmsgboxes"
+            PackageArguments = "/verysilent /suppressmsgboxes"
         }
     )
 
@@ -101,3 +101,4 @@ foreach ($package in $packages) {
 #write-host 'AIB Customization: Finished Fslogix installer' 
 
 #rd .\tmp\ -Force -Confirm:$false -Recurse  
+
