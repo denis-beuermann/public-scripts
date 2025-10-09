@@ -30,7 +30,7 @@ function installPackage {
             #Set-Location "$packagePath\FSLogix\x64\Release\"
             Start-Process `
                 -FilePath "$packagePath\x64\Release\FSLogixAppsSetup.exe" `
-                -ArgumentList "/install /quiet" `
+                -ArgumentList $package.PackageArguments `
                 -Wait `
                 -Passthru
             #Set-Location $packagePath
@@ -49,18 +49,27 @@ function tmpCleanup {
 $tmpDirectory = 'C:\\tmp'
 $packages = @(
         [PSCustomObject]@{
-            PackageName = 'fslogix';
-            PackageUrl = 'https://aka.ms/fslogix_download';
+            PackageName = 'fslogix'
+            PackageUrl = 'https://aka.ms/fslogix_download'
             PackageInstaller = "fslogix_download.zip"
             PackageType = "zip"
             PackageSetup = "FSLogixAppsSetup.exe"
+            PackageArguments = "/install /quiet"
         },
         [PSCustomObject]@{
-            PackageName = 'pwsh';
-            PackageUrl = 'https://github.com/PowerShell/PowerShell/releases/download/v7.5.3/PowerShell-7.5.3-win-x64.msi';
+            PackageName = 'pwsh'
+            PackageUrl = 'https://github.com/PowerShell/PowerShell/releases/download/v7.5.3/PowerShell-7.5.3-win-x64.msi'
             PackageInstaller = "PowerShell-7.5.3-win-x64.msi"
             PackageType = "msi"
             PackageSetup = "PowerShell-7.5.3-win-x64.msi"
+        }
+        [PSCustomObject]@{
+            PackageName = 'vscode';
+            PackageUrl = 'https://code.visualstudio.com/sha/download?build=stable&os=win32-x64';
+            PackageInstaller = "VSCodeSetup-x64-1.104.3.exe"
+            PackageType = "exe"
+            PackageSetup = "VSCodeSetup-x64-1.104.3.exe"
+            PackageArguments = "/very /suppressmsgboxes"
         }
     )
 
