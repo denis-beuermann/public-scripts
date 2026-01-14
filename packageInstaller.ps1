@@ -58,17 +58,17 @@ $packages = @(
         },
         [PSCustomObject]@{
             PackageName = 'pwsh'
-            PackageUrl = 'https://github.com/PowerShell/PowerShell/releases/download/v7.5.3/PowerShell-7.5.3-win-x64.msi'
-            PackageInstaller = "PowerShell-7.5.3-win-x64.msi"
+            PackageUrl = 'https://github.com/PowerShell/PowerShell/releases/download/v7.5.4/PowerShell-7.5.4-win-x64.msi'
+            PackageInstaller = "PowerShell-7.5.4-win-x64.msi"
             PackageType = "msi"
-            PackageSetup = "PowerShell-7.5.3-win-x64.msi"
+            PackageSetup = "PowerShell-7.5.4-win-x64.msi"
         }
         [PSCustomObject]@{
             PackageName = 'vscode';
             PackageUrl = 'https://code.visualstudio.com/sha/download?build=stable&os=win32-x64';
-            PackageInstaller = "VSCodeSetup-x64-1.104.3.exe"
+            PackageInstaller = "VSCodeSetup-x64-1.108.0.exe"
             PackageType = "exe"
-            PackageSetup = "VSCodeSetup-x64-1.104.3.exe"
+            PackageSetup = "VSCodeSetup-x64-1.108.8.exe"
             PackageArguments = "/verysilent /suppressmsgboxes"
         }
     )
@@ -101,4 +101,5 @@ foreach ($package in $packages) {
 #write-host 'AIB Customization: Finished Fslogix installer' 
 
 #rd .\tmp\ -Force -Confirm:$false -Recurse  
+
 
